@@ -57,7 +57,8 @@ namespace Sessiy2
                 { 19, Tuple.Create(new Point(90, 5), new Point(167, 144)) },
                 { 20, Tuple.Create(new Point(174, 5), new Point(211, 144)) },
                 { 21, Tuple.Create(new Point(217, 5), new Point(330, 144)) },
-                { 22, Tuple.Create(new Point(337, 5), new Point(374, 144)) }
+                { 22, Tuple.Create(new Point(337, 5), new Point(374, 144)) },
+                { -1, Tuple.Create(new Point(3, 154), new Point(960, 257)) }
             };
         }
 
@@ -116,7 +117,7 @@ namespace Sessiy2
                 int roomId = movement.LastSecurityPointNumber;
                 if (skud.ContainsKey(roomId))
                 {
-                    Tuple<Point, Point> roomBounds = skud[roomId];
+                    Tuple<Point, Point> roomBounds = (movement.LastSecurityPointDirection == "in") ? skud[roomId] : skud[-1];
 
                     // Переменные для хранения координат нового круга
                     int x = 0;
